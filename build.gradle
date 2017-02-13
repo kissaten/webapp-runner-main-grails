@@ -74,9 +74,9 @@ dependencies {
     console "org.grails:grails-console"
 
     compile 'org.eclipse.jetty:jetty-runner:9.2.11.v20150529'
-    compile('com.github.jsimone:webapp-runner-main:8.5.11.1')
 
-    compile('com.github.jsimone:webapp-runner-memcached:8.5.11.1') {
+    compile 'com.github.jsimone:webapp-runner-main:8.5.11.1'
+    compile 'com.github.jsimone:webapp-runner-memcached:8.5.11.1' {
       exclude module: "memcached-session-manager-tc8"
       exclude module: "httpcore"
       exclude module: "couchbase-client"
@@ -101,12 +101,13 @@ war.mustRunAfter clean
 task copyToLib(type: Copy) {
     into "$buildDir/server"
     from(configurations.compile) {
-      include "webapp-runner"
-      include "memcached-session-manager"
-      include "spymemcached"
-      include "httpcore"
-      include "jsr305"
-      include "annotations"
+      include "webapp-runner*"
+      include "memcached-session-manager*"
+      include "spymemcached*"
+      include "httpcore*"
+      include "jsr305*"
+      include "annotations*"
     }
 }
+
 stage.dependsOn(copyToLib)
