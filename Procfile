@@ -1,1 +1,1 @@
-web: cd build ; java $JAVA_OPTS -Xmx256m -Dgrails.env=prod -jar ../build/server/webapp-runner-*.jar --expand-war --port $PORT libs/*.war
+web: java $JAVA_OPTS -Xmx256m -Dgrails.env=prod -jar -cp build/server/ webapp.runner.launch.Main --session-store memcache --port $PORT build/libs/.war
