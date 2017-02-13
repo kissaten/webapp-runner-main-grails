@@ -76,9 +76,7 @@ dependencies {
     compile 'org.eclipse.jetty:jetty-runner:9.2.11.v20150529'
 
     compile 'com.github.jsimone:webapp-runner-main:8.5.11.1'
-    compile 'com.github.jsimone:webapp-runner-memcached:8.5.11.1' {
-      exclude module: "memcached-session-manager-tc8"
-      exclude module: "httpcore"
+    compile('com.github.jsimone:webapp-runner-memcached:8.5.11.1') {
       exclude module: "couchbase-client"
     }
   }
